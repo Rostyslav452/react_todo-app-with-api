@@ -21,7 +21,6 @@ import { filterTodo } from './api/utils/filterTodos';
 import { ErrorNotification } from './components/ErrorNotification';
 import { ERROR_MESSAGES, ErrorMessage } from './types/ErrorMessages';
 
-
 const ERROR_DELAY = 3000;
 
 export const App: React.FC = () => {
@@ -165,7 +164,7 @@ export const App: React.FC = () => {
           toggleAllTodos={toggleAllTodos}
         />
 
-        {(preparedTodos.length > 0 || tempTodo) && (
+        {(todos.length > 0 || tempTodo) && (
           <TodoList
             todos={preparedTodos}
             tempTodo={tempTodo}
