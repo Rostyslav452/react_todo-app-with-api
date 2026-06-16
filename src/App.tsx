@@ -19,16 +19,8 @@ import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { filterTodo } from './api/utils/filterTodos';
 import { ErrorNotification } from './components/ErrorNotification';
+import { ERROR_MESSAGES, ErrorMessage } from './types/ErrorMessages';
 
-const ERROR_MESSAGES = {
-  loadTodos: 'Unable to load todos',
-  addTodo: 'Unable to add a todo',
-  updateTodo: 'Unable to update a todo',
-  deleteTodo: 'Unable to delete a todo',
-  emptyTitle: 'Title should not be empty',
-} as const;
-
-type ErrorMessage = (typeof ERROR_MESSAGES)[keyof typeof ERROR_MESSAGES];
 
 const ERROR_DELAY = 3000;
 
@@ -140,7 +132,6 @@ export const App: React.FC = () => {
     });
   }, [todos, onDelete]);
 
-  const preparedTodos = filterTodo(todos, query);
   const completedCount = filterTodo(todos, 'Completed')?.length || 0;
   const activeCount = todos.length - completedCount;
 
@@ -159,6 +150,8 @@ export const App: React.FC = () => {
   if (!USER_ID) {
     return <UserWarning />;
   }
+
+  const preparedTodos = filterTodo(todos, query);
 
   return (
     <div className="todoapp">

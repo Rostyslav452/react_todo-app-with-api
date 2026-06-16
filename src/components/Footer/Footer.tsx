@@ -33,7 +33,7 @@ export const Footer: React.FC<Props> = ({
             href={
               filterValue !== 'All'
                 ? `#/${filterValue.toLocaleLowerCase()}`
-                : ''
+                : '#/'
             }
             className={classNames('filter__link', {
               selected: query === filterValue,

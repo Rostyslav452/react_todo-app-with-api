@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import '../../styles/todoapp.scss';
+import { ErrorMessage } from '../../types/ErrorMessages';
 
 interface Props {
-  setErrorMessage: (message: string) => void;
+  setErrorMessage: (message: ErrorMessage | '') => void;
   errorMessage: string;
 }
 
